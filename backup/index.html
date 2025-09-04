@@ -3,21 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ultimate Fun v4 - Games Hub</title>
-    <meta
-      name="description"
-      content="Ultimate Fun - Your hub for instant browser games. No downloads, no installs, just click and play!"
-    />
-    <meta
-      name="keywords"
-      content="browser games, online games, HTML5 games, instant games, no download games, web games"
-    />
-    <meta name="author" content="Muhammad Hamza Shabbir" />
+    <title>Ultimate Fun - Games Hub</title>
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
     <style>
       * {
         margin: 0;
@@ -242,19 +235,15 @@
       }
 
       .games-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        display: flex;
+        justify-content: center;
         gap: 2rem;
         margin-bottom: 3rem;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
       }
 
       .games-grid.single-game {
         max-width: 400px;
         margin: 0 auto 3rem auto;
-        grid-template-columns: 1fr;
       }
 
       .game-card {
@@ -267,9 +256,6 @@
         opacity: 0;
         transform: translateY(20px);
         animation: cardReveal 0.6s ease forwards;
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
       }
 
       .game-card:hover {
@@ -629,7 +615,7 @@
         }
 
         .games-grid {
-          grid-template-columns: 1fr;
+          flex-direction: column;
           gap: 1.5rem;
         }
 
@@ -832,13 +818,6 @@
           link: "./guess-the-flag.html",
           icon: "🏳️",
         },
-        {
-          title: "Tic-Tac-Toe",
-          description: "Classic strategy game - get three in a row to win!",
-          tags: ["Strategy", "Classic", "Multiplayer"],
-          link: "./tic-tac-toe.html",
-          icon: "⭕",
-        },
       ];
 
       // Initialize page
@@ -1015,7 +994,7 @@
           if (b) {
             var d = b.createElement("script");
             d.innerHTML =
-              "window.__CF$cv$params={r:'979c8fab62f7d051',t:'MTc1Njk3OTIwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+              "window.__CF$cv$params={r:'9797d3c7707990a5',t:'MTc1NjkyOTU2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
             b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
