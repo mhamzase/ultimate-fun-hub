@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>Neon Tic Tac Toe</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
@@ -111,13 +111,12 @@
             margin-bottom: 20px;
         }
 
-        .top-controls {
+        .game-controls-row {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            width: 100%;
-            max-width: 400px;
-            gap: 10px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .mode-section {
@@ -132,11 +131,6 @@
             flex-wrap: wrap;
         }
 
-        .reset-section {
-            display: flex;
-            justify-content: center;
-        }
-
         .back-button {
             position: fixed;
             top: 20px;
@@ -144,19 +138,21 @@
             background: var(--card-bg);
             border: 2px solid var(--border-primary);
             color: var(--text-primary);
-            padding: 10px;
+            padding: 8px;
             border-radius: 50%;
-            font-size: 18px;
+            font-size: 32px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 10px var(--shadow-primary);
             z-index: 100;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            font-weight: 900;
+            line-height: 1;
         }
 
         .back-button:hover {
@@ -166,20 +162,46 @@
             transform: translateY(-2px) scale(1.1);
         }
 
-        .theme-toggle, .mode-toggle, .difficulty-select, .restart-btn, .reset-all-btn {
+        .theme-toggle-top {
+            position: fixed;
+            top: 20px;
+            right: 20px;
             background: var(--card-bg);
             border: 2px solid var(--border-primary);
             color: var(--text-primary);
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 8px;
             font-family: 'Nunito', sans-serif;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 10px var(--shadow-primary);
-            font-size: 12px;
+            font-size: 14px;
             letter-spacing: 0.5px;
-            min-width: 80px;
+            z-index: 100;
+        }
+
+        .theme-toggle-top:hover {
+            background: var(--border-primary);
+            color: white;
+            box-shadow: 0 6px 25px var(--shadow-primary);
+            transform: translateY(-2px);
+        }
+
+        .theme-toggle, .mode-toggle, .difficulty-select, .restart-btn, .reset-all-btn {
+            background: var(--card-bg);
+            border: 2px solid var(--border-primary);
+            color: var(--text-primary);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px var(--shadow-primary);
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            min-width: 100px;
         }
 
         .theme-toggle:hover, .mode-toggle:hover, .difficulty-select:hover, .restart-btn:hover, .reset-all-btn:hover {
@@ -490,8 +512,8 @@
                 margin-bottom: 15px;
             }
             
-            .top-controls {
-                max-width: 100%;
+            .game-controls-row {
+                gap: 10px;
             }
             
             .main-controls {
@@ -502,8 +524,8 @@
             .back-button {
                 top: 15px;
                 left: 15px;
-                width: 45px;
-                height: 45px;
+                width: 40px;
+                height: 40px;
                 font-size: 16px;
             }
             
@@ -572,15 +594,18 @@
 </head>
 <body>
     <a href="https://ultimate-fun.netlify.app/" class="back-button" title="Back to Games">
-        ←
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
     </a>
+    
+    <button class="theme-toggle-top" id="themeToggle">🌙 DARK</button>
 
     <div class="container">
         <h1>TIC TAC TOE</h1>
         
         <div class="controls-wrapper">
-            <div class="top-controls">
-                <button class="theme-toggle" id="themeToggle">🌙 DARK</button>
+            <div class="game-controls-row">
                 <button class="restart-btn" id="restartBtn">RESTART GAME</button>
                 <button class="reset-all-btn" id="resetAllBtn">RESET ALL</button>
             </div>
@@ -916,11 +941,6 @@
                 this.difficulty = 'easy';
                 this.difficultySelect.value = 'easy';
                 
-                // Reset theme to dark
-                this.isDarkMode = true;
-                this.updateTheme();
-                this.saveTheme();
-                
                 // Clear board
                 this.cells.forEach(cell => {
                     cell.textContent = '';
@@ -1046,5 +1066,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a0af57755cd051',t:'MTc1NzAyMjQ0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a0caa3e006d051',t:'MTc1NzAyMzU2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
